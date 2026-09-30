@@ -1,12 +1,15 @@
 /**
  * Fetches the footer fragment. Metadata-independent dual fetch:
  * /content/footer.plain.html (local preview) first, then /footer.plain.html (DA/EDS).
+ * The /content path is only tried when the page itself is served from /content/,
+ * so published pages don't log a 404 on every load.
  * @returns {Promise<Document|null>} parsed fragment document
  */
 async function fetchFooterFragment() {
   // metadata-independent: /content first (localhost), then root (DA/EDS prod)
-  let resp = await fetch('/content/footer.plain.html');
-  if (!resp.ok) resp = await fetch('/footer.plain.html');
+  let resp = window.location.pathname.startsWith('/content/')
+    ? await fetch('/content/footer.plain.html') : null;
+  if (!resp?.ok) resp = await fetch('/footer.plain.html');
   if (!resp.ok) return null;
   const html = await resp.text();
   const doc = new DOMParser().parseFromString(html, 'text/html');
@@ -183,7 +186,10 @@ function decorateLinks(root) {
       a.target = '_blank';
       a.rel = 'noopener noreferrer';
     }
-    if (url.hash === '#cookie-preferences' && url.pathname === window.location.pathname) {
+    // hash-only links do not survive every authoring pipeline, so also match the label
+    const isConsentLink = (url.hash === '#cookie-preferences' && url.pathname === window.location.pathname)
+      || /^cookie (preferences|settings)$/i.test(a.textContent.trim());
+    if (isConsentLink) {
       a.addEventListener('click', (e) => {
         e.preventDefault();
         window.dispatchEvent(new CustomEvent('consent.open', { detail: { source: 'footer' } }));

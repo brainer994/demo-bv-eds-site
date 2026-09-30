@@ -105,8 +105,14 @@ export default function decorate(block) {
 
   // collect background media (pictures + video links) from anywhere in the block
   const pictures = [...block.querySelectorAll('picture')];
-  const videoLinks = [...block.querySelectorAll('a[href]')]
-    .filter((a) => VIDEO_PATTERN.test(a.getAttribute('href')));
+  // authoring tools may rewrite a link's href (e.g. to a site-relative path) while the
+  // link text keeps the original video URL, so accept a video URL from either
+  const videoSrc = (a) => {
+    const text = a.textContent.trim();
+    if (/^https?:\/\//i.test(text) && VIDEO_PATTERN.test(text)) return text;
+    return VIDEO_PATTERN.test(a.getAttribute('href')) ? a.href : null;
+  };
+  const videoLinks = [...block.querySelectorAll('a[href]')].filter((a) => videoSrc(a));
 
   const bgPicture = pictures[0];
   if (bgPicture) {
@@ -120,7 +126,7 @@ export default function decorate(block) {
   }
 
   if (videoLinks.length) {
-    const video = buildVideo(videoLinks[0].href);
+    const video = buildVideo(videoSrc(videoLinks[0]));
     if (bgPicture) video.poster = bgPicture.querySelector('img').src;
     media.append(video);
   }

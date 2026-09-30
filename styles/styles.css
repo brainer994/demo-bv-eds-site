@@ -359,6 +359,11 @@ main > .section:first-of-type {
   padding-top: 0;
 }
 
+/* sections left empty (e.g. after page metadata is extracted) take no space */
+main > .section:empty {
+  display: none;
+}
+
 /* skip style, layout and paint work for sections until they near the viewport */
 main > .section:nth-of-type(n + 3) {
   content-visibility: auto;
