@@ -1,0 +1,42 @@
+{
+  "id": "tabs-industries",
+  "name": "tabs-industries",
+  "variantName": "tabs-industries",
+  "type": "tabs",
+  "baseBlock": "tabs",
+  "canonicalModel": "standalone",
+  "version": "1.0.0",
+  "created": "2026-09-29T11:10:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.brainvire.com/",
+    "discoveredDuring": "excat-site-migration per-page analysis",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "moderate",
+    "imagePattern": "large",
+    "purpose": "tabs-industries",
+    "structure": "two columns: vertical list of numbered industry tabs (left) switching a panel (right) with a cover image and overlaid H3, paragraph and link",
+    "hasBgImage": false,
+    "position": "middle",
+    "isFullWidth": false,
+    "hasGrid": true,
+    "sectionStyle": "dark gradient",
+    "summary": "Vertical list of 9 numbered industry selectors on the left switching a right-hand panel with image, H3, paragraph and link (one panel per industry)"
+  },
+  "contentPattern": {
+    "structure": "one row per industry: tab label (numbering /01, /02 is added automatically) | image, H3, paragraph, link. If the label cell is omitted, the panel heading is used as the tab label",
+    "buttonCount": 9,
+    "imageCount": 9
+  },
+  "options": [],
+  "memberVariantIds": ["tabs-industries"],
+  "usage": {
+    "pagesUsing": [
+      { "url": "https://www.brainvire.com/", "instanceId": null, "screenshot": "migration-work/sec-9.png" }
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-29T11:10:00.000Z"
+  }
+}

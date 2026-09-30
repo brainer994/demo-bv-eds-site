@@ -1,0 +1,42 @@
+{
+  "id": "cards-faq",
+  "name": "cards-faq",
+  "variantName": "cards-faq",
+  "type": "cards",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "version": "1.0.0",
+  "created": "2026-09-29T11:25:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.brainvire.com/",
+    "discoveredDuring": "excat-site-migration per-page analysis",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "imagePattern": "noimg",
+    "purpose": "cards-faq",
+    "structure": "static 2x2 grid of question/answer pairs (H3 + paragraph) with a divider line under each; always expanded",
+    "hasBgImage": false,
+    "position": "bottom",
+    "isFullWidth": false,
+    "hasGrid": true,
+    "sectionStyle": "light (white)",
+    "summary": "Static 2x2 grid of question/answer pairs (H3 + paragraph) with bottom divider lines; always expanded, no interaction"
+  },
+  "contentPattern": {
+    "structure": "one row per question: a single cell with an H3 question followed by the answer paragraph(s), or two cells (question | answer)",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "options": [],
+  "memberVariantIds": ["cards-faq"],
+  "usage": {
+    "pagesUsing": [
+      { "url": "https://www.brainvire.com/", "instanceId": null, "screenshot": "migration-work/sec-12.png" }
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-29T11:25:00.000Z"
+  }
+}

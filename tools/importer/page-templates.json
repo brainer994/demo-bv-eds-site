@@ -1,0 +1,280 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "home",
+      "urls": [
+        "https://www.brainvire.com/"
+      ],
+      "representativeUrl": "https://www.brainvire.com/",
+      "description": "Brainvire homepage: video hero, client logos, capabilities, partners, operating model, accelerators, case studies, testimonials, industries tabs, recognition, insights, FAQ and contact CTA",
+      "blocks": [
+        {
+          "name": "hero-video",
+          "instances": [
+            ".fh > header.hero"
+          ]
+        },
+        {
+          "name": "cards-logos",
+          "instances": [
+            ".clients .client-row"
+          ]
+        },
+        {
+          "name": "cards-services",
+          "instances": [
+            "#services .svc-grid"
+          ]
+        },
+        {
+          "name": "cards-partners",
+          "instances": [
+            "section.partners .p-row"
+          ]
+        },
+        {
+          "name": "cards-intelligence",
+          "instances": [
+            "#bvai .frame"
+          ]
+        },
+        {
+          "name": "cards-accelerator",
+          "instances": [
+            "#accelerators .accel-grid"
+          ]
+        },
+        {
+          "name": "cards-case-study",
+          "instances": [
+            "#work .wstack"
+          ]
+        },
+        {
+          "name": "cards-testimonial",
+          "instances": [
+            "section.testi .testi-layout"
+          ]
+        },
+        {
+          "name": "tabs-industries",
+          "instances": [
+            "#industries .ind-split"
+          ]
+        },
+        {
+          "name": "cards-awards",
+          "instances": [
+            "section.rec .rec-grid"
+          ]
+        },
+        {
+          "name": "cards-article",
+          "instances": [
+            "#insights .ins3-grid"
+          ]
+        },
+        {
+          "name": "cards-faq",
+          "instances": [
+            ".faq-grid"
+          ]
+        }
+      ],
+      "urlPattern": "/",
+      "sections": [
+        {
+          "id": "1",
+          "name": "Hero",
+          "selector": [
+            ".fh > header.hero",
+            "header.hero"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-video"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "2",
+          "name": "Clients (label + logo wall)",
+          "selector": [
+            ".fh > div.clients",
+            "div.clients"
+          ],
+          "style": "dark",
+          "blocks": [
+            "cards-logos"
+          ],
+          "defaultContent": [
+            ".clients .wrap > div:first-child"
+          ]
+        },
+        {
+          "id": "4",
+          "name": "Capabilities",
+          "selector": [
+            "#services"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-services"
+          ],
+          "defaultContent": [
+            "#services .wrap > div:first-child"
+          ]
+        },
+        {
+          "id": "5",
+          "name": "Certified partnerships",
+          "selector": [
+            "section.partners"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-partners"
+          ],
+          "defaultContent": [
+            "section.partners .head"
+          ]
+        },
+        {
+          "id": "6",
+          "name": "Operating model",
+          "selector": [
+            "#bvai",
+            "section.bvai"
+          ],
+          "style": "dark",
+          "blocks": [
+            "cards-intelligence"
+          ],
+          "defaultContent": [
+            "#bvai .wrap > div:first-child"
+          ]
+        },
+        {
+          "id": "7",
+          "name": "Accelerators",
+          "selector": [
+            "#accelerators",
+            "section.accel"
+          ],
+          "style": "grey",
+          "blocks": [
+            "cards-accelerator"
+          ],
+          "defaultContent": [
+            "#accelerators .wrap > div:first-child"
+          ]
+        },
+        {
+          "id": "8",
+          "name": "Selected work",
+          "selector": [
+            "#work"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-case-study"
+          ],
+          "defaultContent": [
+            "#work .wrap > div:first-child",
+            "#work .wrap > p"
+          ]
+        },
+        {
+          "id": "9",
+          "name": "Testimonials",
+          "selector": [
+            "section.testi"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-testimonial"
+          ],
+          "defaultContent": [
+            "section.testi .wrap > div:first-child"
+          ]
+        },
+        {
+          "id": "10",
+          "name": "Industries",
+          "selector": [
+            "#industries",
+            "section.ind-dark"
+          ],
+          "style": "dark",
+          "blocks": [
+            "tabs-industries"
+          ],
+          "defaultContent": [
+            "#industries .wrap > div:first-child"
+          ]
+        },
+        {
+          "id": "11",
+          "name": "Recognition",
+          "selector": [
+            "section.rec"
+          ],
+          "style": "grey",
+          "blocks": [
+            "cards-awards"
+          ],
+          "defaultContent": [
+            "section.rec .wrap > div:first-child",
+            "section.rec .analyst"
+          ]
+        },
+        {
+          "id": "12",
+          "name": "Insights",
+          "selector": [
+            "#insights"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-article"
+          ],
+          "defaultContent": [
+            "#insights .wrap > div:first-child",
+            "#insights .wrap > p"
+          ]
+        },
+        {
+          "id": "13",
+          "name": "FAQ",
+          "selector": [
+            ".fh > section:has(.faq-grid)",
+            ".fh > section:nth-of-type(10)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-faq"
+          ],
+          "defaultContent": [
+            "section:has(.faq-grid) .wrap > div:first-child"
+          ]
+        },
+        {
+          "id": "14",
+          "name": "Contact CTA",
+          "selector": [
+            "#contact",
+            "section.cta"
+          ],
+          "style": "dark",
+          "blocks": [],
+          "defaultContent": [
+            "#contact .wrap"
+          ]
+        }
+      ]
+    }
+  ]
+}

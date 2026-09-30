@@ -11,73 +11,100 @@
  */
 
 :root {
-  /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
-
-  /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
-
   /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
+  --body-font-size-m: 15px;
+  --body-font-size-s: 14px;
+  --body-font-size-xs: 12px;
+  --lede-font-size: 17.5px;
+  --intro-font-size: 17px;
 
-  /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
-
-  /* nav height */
-  --nav-height: 64px;
+  /* legacy heading size aliases used by boilerplate blocks */
+  --heading-font-size-xxl: var(--heading-size-xxl);
+  --heading-font-size-xl: var(--heading-size-xl);
+  --heading-font-size-l: var(--heading-size-l);
+  --heading-font-size-m: var(--heading-size-m);
+  --heading-font-size-s: var(--heading-size-s);
+  --heading-font-size-xs: var(--heading-size-xs);
 }
 
-/* fallback fonts */
+/* headline web fonts: declared eagerly (and preloaded in head.html) so the hero H1 does not reflow */
 @font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
+  font-family: "BV Serif";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/bvserif-400i.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
-  src: local('Arial');
+  font-family: "BV Serif";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/bvserif-700.woff2') format('woff2');
 }
 
-@media (width >= 900px) {
-  :root {
-    /* body sizes */
-    --body-font-size-m: 18px;
-    --body-font-size-s: 16px;
-    --body-font-size-xs: 14px;
+/*
+ * fallback fonts: metrics tuned to BV Sans / BV Serif (capsize-weighted average widths
+ * against Arial / Georgia) so the font swap causes minimal layout shift
+ */
+@font-face {
+  font-family: bv-sans-fallback;
+  size-adjust: 101.2%;
+  ascent-override: 90.4%;
+  descent-override: 22.5%;
+  line-gap-override: 0%;
+  src: local('Arial'), local('ArialMT');
+}
 
-    /* heading sizes */
-    --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
-    --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
-  }
+@font-face {
+  font-family: bv-sans-fallback;
+  font-weight: 600 700;
+  size-adjust: 96.4%;
+  ascent-override: 94.9%;
+  descent-override: 23.7%;
+  line-gap-override: 0%;
+  src: local('Arial Bold'), local('Arial-BoldMT');
+}
+
+@font-face {
+  font-family: bv-serif-fallback;
+  size-adjust: 101.3%;
+  ascent-override: 106.8%;
+  descent-override: 24.8%;
+  line-gap-override: 0%;
+  src: local('Georgia');
+}
+
+@font-face {
+  font-family: bv-serif-fallback;
+  font-weight: 600 700;
+  size-adjust: 89.3%;
+  ascent-override: 121.2%;
+  descent-override: 28.1%;
+  line-gap-override: 0%;
+  src: local('Georgia Bold'), local('Georgia-Bold');
+}
+
+@font-face {
+  font-family: bv-serif-fallback;
+  font-style: italic;
+  size-adjust: 94.3%;
+  ascent-override: 114.7%;
+  descent-override: 26.6%;
+  line-gap-override: 0%;
+  src: local('Georgia Italic'), local('Georgia-Italic');
 }
 
 body {
   display: none;
   margin: 0;
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--body-text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-  line-height: 1.6;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
 body.appear {
@@ -98,26 +125,45 @@ footer .footer[data-block-status="loaded"] {
   visibility: visible;
 }
 
+/* typography */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--text-color);
   font-family: var(--heading-font-family);
   font-weight: 600;
-  line-height: 1.25;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
   scroll-margin: 40px;
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); }
-h3 { font-size: var(--heading-font-size-l); }
-h4 { font-size: var(--heading-font-size-m); }
-h5 { font-size: var(--heading-font-size-s); }
-h6 { font-size: var(--heading-font-size-xs); }
+h1 {
+  font-size: var(--heading-size-xxl);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  max-width: 900px;
+  font-size: var(--heading-size-xl);
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--body-font-family);
+}
+
+h3 { font-size: var(--heading-size-l); }
+h4 { font-size: var(--heading-size-m); }
+h5 { font-size: var(--heading-size-s); }
+h6 { font-size: var(--heading-size-xs); }
 
 p,
 dl,
@@ -125,8 +171,8 @@ ol,
 ul,
 pre,
 blockquote {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
+  margin-top: 0;
+  margin-bottom: 18px;
 }
 
 code,
@@ -136,14 +182,10 @@ pre {
 
 pre {
   padding: 16px;
-  border-radius: 8px;
+  border-radius: 2px;
   background-color: var(--light-color);
   overflow-x: auto;
   white-space: pre;
-}
-
-main > div {
-  margin: 40px 16px;
 }
 
 input,
@@ -153,21 +195,58 @@ button {
   font: inherit;
 }
 
+/* default content: eyebrow label ("/ Capabilities"), heading, intro */
+main .default-content-wrapper > h2 + p {
+  max-width: 640px;
+  margin-top: 20px;
+  color: var(--muted-text-color);
+  font-size: var(--intro-font-size);
+  line-height: 1.55;
+}
+
+main .default-content-wrapper > h2 + p:last-child {
+  margin-bottom: 0;
+}
+
+main .default-content-wrapper > p:first-child:has(+ h2),
+main .default-content-wrapper > p:first-child:only-child:not(:has(a)) {
+  margin: 0 0 18px;
+  color: var(--muted-text-color);
+  font-size: var(--body-font-size-xs);
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+main .default-content-wrapper .accent-mark {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+main .default-content-wrapper > h2 .accent-mark {
+  font-weight: inherit;
+}
+
+main .default-content-wrapper > p:first-child > .accent-mark {
+  margin-right: 8px;
+}
+
 /* links */
 a:any-link {
   color: var(--link-color);
   text-decoration: none;
   overflow-wrap: break-word;
+  transition: color 0.2s;
 }
 
 a:hover {
   color: var(--link-hover-color);
-  text-decoration: underline;
 }
 
 /* buttons */
 p.button-wrapper {
-  margin: 12px 0;
+  margin: 32px 0 0;
 }
 
 a.button:any-link,
@@ -176,57 +255,54 @@ button.button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   max-width: 100%;
   margin: 0;
-  border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
-  font: inherit;
-  font-weight: 500;
-  line-height: 1.25;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 16px 30px;
+  font-family: var(--body-font-family);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.55;
   text-decoration: none;
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
 }
 
 a.button[aria-disabled="true"],
 button.button:disabled {
   cursor: not-allowed;
   pointer-events: none;
+  opacity: 0.5;
 }
 
 a.button.primary,
-button.button.primary {
-  border-color: var(--text-color);
-  background-color: var(--text-color);
-  color: var(--background-color);
+button.button.primary,
+a.button.accent,
+button.button.accent {
+  background-color: var(--link-color);
+  color: #fff;
 }
 
 a.button.primary:hover,
 a.button.primary:focus-visible,
 button.button.primary:hover,
-button.button.primary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
-  color: var(--light-color);
-}
-
-a.button.primary[aria-disabled="true"],
-a.button.primary[aria-disabled="true"]:hover,
-a.button.primary[aria-disabled="true"]:focus-visible,
-button.button.primary:disabled,
-button.button.primary:disabled:hover,
-button.button.primary:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
+button.button.primary:focus-visible,
+a.button.accent:hover,
+a.button.accent:focus-visible,
+button.button.accent:hover,
+button.button.accent:focus-visible {
+  background-color: var(--link-hover-color);
+  color: #fff;
 }
 
 a.button.secondary,
 button.button.secondary {
-  border-color: var(--text-color);
+  border-color: var(--border-color);
   background-color: transparent;
   color: var(--text-color);
 }
@@ -235,47 +311,14 @@ a.button.secondary:hover,
 a.button.secondary:focus-visible,
 button.button.secondary:hover,
 button.button.secondary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--light-color);
-  color: var(--dark-color);
+  border-color: var(--text-color);
+  color: var(--text-color);
 }
 
-a.button.secondary[aria-disabled="true"],
-a.button.secondary[aria-disabled="true"]:hover,
-a.button.secondary[aria-disabled="true"]:focus-visible,
-button.button.secondary:disabled,
-button.button.secondary:disabled:hover,
-button.button.secondary:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
-}
-
-/* high-impact call-to-action */
-a.button.accent,
-button.button.accent {
-  border-color: var(--link-color);
-  background-color: var(--link-color);
-  color: var(--background-color);
-}
-
-a.button.accent:hover,
-a.button.accent:focus-visible,
-button.button.accent:hover,
-button.button.accent:focus-visible {
-  border-color: var(--link-hover-color);
-  background-color: var(--link-hover-color);
-}
-
-a.button.accent[aria-disabled="true"],
-a.button.accent[aria-disabled="true"]:hover,
-a.button.accent[aria-disabled="true"]:focus-visible,
-button.button.accent:disabled,
-button.button.accent:disabled:hover,
-button.button.accent:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
+a.button:focus-visible,
+button.button:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 main img {
@@ -297,29 +340,164 @@ main img {
 
 /* sections */
 main > .section {
-  margin: 40px 0;
+  margin: 0;
+  padding: var(--section-padding) 0;
 }
 
 main > .section > div {
-  max-width: 1200px;
+  box-sizing: border-box;
+  max-width: var(--content-max-width);
   margin: auto;
-  padding: 0 24px;
+  padding: 0 var(--content-padding);
+}
+
+main > .section > div + div {
+  margin-top: 40px;
 }
 
 main > .section:first-of-type {
-  margin-top: 0;
+  padding-top: 0;
 }
 
-@media (width >= 900px) {
-  main > .section > div {
-    padding: 0 32px;
+/* skip style, layout and paint work for sections until they near the viewport */
+main > .section:nth-of-type(n + 3) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+/* section metadata styles */
+main .section.light,
+main .section.grey,
+main .section.highlight {
+  background-color: var(--light-color);
+}
+
+main .section.dark {
+  background-image: var(--dark-gradient);
+  background-color: var(--dark-color);
+  background-size: 260% 260%;
+  background-position: 50% 50%;
+  color: #fff;
+  animation: dark-gradient-pan 36.2s linear infinite;
+}
+
+@keyframes dark-gradient-pan {
+  0% { background-position: 50% 50%; }
+  6.25% { background-position: 76.9% 61.5%; }
+  12.5% { background-position: 88% 71.2%; }
+  18.75% { background-position: 76.9% 77.7%; }
+  25% { background-position: 50% 80%; }
+  31.25% { background-position: 23.1% 77.7%; }
+  37.5% { background-position: 12% 71.2%; }
+  43.75% { background-position: 23.1% 61.5%; }
+  50% { background-position: 50% 50%; }
+  56.25% { background-position: 76.9% 38.5%; }
+  62.5% { background-position: 88% 28.8%; }
+  68.75% { background-position: 76.9% 22.3%; }
+  75% { background-position: 50% 20%; }
+  81.25% { background-position: 23.1% 22.3%; }
+  87.5% { background-position: 12% 28.8%; }
+  93.75% { background-position: 23.1% 38.5%; }
+  100% { background-position: 50% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main .section.dark {
+    animation: none;
   }
 }
 
-/* section metadata */
-main .section.light,
-main .section.highlight {
-  background-color: var(--light-color);
-  margin: 0;
-  padding: 40px 0;
+main .section.dark h1,
+main .section.dark h2,
+main .section.dark h3,
+main .section.dark h4,
+main .section.dark h5,
+main .section.dark h6 {
+  color: #fff;
+}
+
+main .section.dark .default-content-wrapper > h2 + p {
+  color: rgb(233 241 252);
+}
+
+main .section.dark .default-content-wrapper > p:first-child:has(+ h2),
+main .section.dark .default-content-wrapper > p:first-child:only-child:not(:has(a)) {
+  color: #eaf2ff;
+}
+
+main .section.dark .default-content-wrapper .accent-mark {
+  color: #bfdbff;
+}
+
+main .section.dark a:any-link:not(.button) {
+  color: #fff;
+}
+
+main .section.dark a.button.primary,
+main .section.dark button.button.primary {
+  background-color: #fff;
+  color: var(--text-color);
+}
+
+main .section.dark a.button.primary:hover,
+main .section.dark a.button.primary:focus-visible,
+main .section.dark button.button.primary:hover,
+main .section.dark button.button.primary:focus-visible {
+  background-color: #012965;
+  color: #fff;
+}
+
+main .section.dark a.button.secondary,
+main .section.dark button.button.secondary {
+  border-color: rgb(255 255 255 / 40%);
+  color: #fff;
+}
+
+main .section.dark a.button.secondary:hover,
+main .section.dark button.button.secondary:hover {
+  border-color: #fff;
+}
+
+/* closing call-to-action section (last dark section) */
+main > .section.dark:last-of-type {
+  position: relative;
+  padding: var(--section-padding-l) 0;
+}
+
+main > .section.dark:last-of-type::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(800px 420px at 90% 100%, rgb(59 139 255 / 14%), transparent 60%);
+  pointer-events: none;
+}
+
+main > .section.dark:last-of-type > div {
+  position: relative;
+  z-index: 1;
+}
+
+main > .section.dark:last-of-type h2 {
+  max-width: 900px;
+  font-size: var(--heading-size-cta);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+main > .section.dark:last-of-type .default-content-wrapper > h2 + p {
+  max-width: 560px;
+  margin-top: 26px;
+}
+
+main > .section.dark:last-of-type .default-content-wrapper > p:first-child:has(+ h2) {
+  margin: 26px 0 42px;
+}
+
+main > .section.dark:last-of-type .default-content-wrapper > p:first-child > .accent-mark {
+  color: #fff;
+}
+
+main > .section.dark:last-of-type p.button-wrapper {
+  margin-top: 42px;
 }

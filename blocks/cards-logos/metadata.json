@@ -1,0 +1,42 @@
+{
+  "id": "cards-logos",
+  "name": "cards-logos",
+  "variantName": "cards-logos",
+  "type": "cards",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "version": "1.0.0",
+  "created": "2026-09-29T10:35:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.brainvire.com/",
+    "discoveredDuring": "excat-site-migration per-page analysis",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "moderate",
+    "imagePattern": "multiple",
+    "purpose": "cards-logos",
+    "structure": "grid of client logos in uniform boxes (6 columns x 2 rows at desktop)",
+    "hasBgImage": false,
+    "position": "top",
+    "isFullWidth": false,
+    "hasGrid": true,
+    "sectionStyle": "dark gradient (continuation of div.clients band)",
+    "summary": "Grid of 12 client logos in white boxes followed by a '+ 500 enterprise clients' link (authored as default content after the block)"
+  },
+  "contentPattern": {
+    "structure": "one row per logo: logo image | optional label (or link to make the logo clickable); the trailing '+ 500 enterprise clients' link is default content after the block",
+    "buttonCount": 0,
+    "imageCount": 12
+  },
+  "options": [],
+  "memberVariantIds": ["cards-logos"],
+  "usage": {
+    "pagesUsing": [
+      { "url": "https://www.brainvire.com/", "instanceId": null, "screenshot": "migration-work/screenshot.png" }
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-29T10:35:00.000Z"
+  }
+}

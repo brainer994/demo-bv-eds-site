@@ -1,0 +1,42 @@
+{
+  "id": "hero-video",
+  "name": "hero-video",
+  "variantName": "hero-video",
+  "type": "hero",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "version": "1.0.0",
+  "created": "2026-09-29T10:30:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.brainvire.com/",
+    "discoveredDuring": "excat-site-migration per-page analysis",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "moderate",
+    "imagePattern": "background",
+    "purpose": "hero-video",
+    "structure": "background image + looping background video with overlay; H1, intro paragraph, 2 CTAs, row of 4 platform link tiles",
+    "hasBgImage": true,
+    "position": "top",
+    "isFullWidth": true,
+    "hasGrid": true,
+    "sectionStyle": "dark (background image + looping video with dark overlay, white text)",
+    "summary": "Background image with background video overlay; large H1 with highlighted words, intro paragraph, two CTA links (primary 'Start a Conversation', secondary 'Explore the Work'), row of four platform link tiles each with bold title and short description"
+  },
+  "contentPattern": {
+    "structure": "row 1 = background image plus an optional link to an .mp4 video (same or second cell); row 2 = H1, intro paragraph, CTA links (bold = primary, italic = secondary), and a bulleted list where each item is a link with a bold title followed by a short description (rendered as platform tiles)",
+    "buttonCount": 2,
+    "imageCount": 1
+  },
+  "options": [],
+  "memberVariantIds": ["hero-video"],
+  "usage": {
+    "pagesUsing": [
+      { "url": "https://www.brainvire.com/", "instanceId": null, "screenshot": "migration-work/screenshot.png" }
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-29T10:30:00.000Z"
+  }
+}

@@ -1,0 +1,159 @@
+/* cards-logos: client logo wall in white boxes on the dark gradient band */
+
+/*
+ * Fallback for the "Trusted by ..." label authored in the dark section directly above:
+ * pull this section up so label -> logos spacing is the source's 34px
+ * (label paragraph keeps its 18px bottom margin) and both read as one band.
+ * Only applies while the block opens its section (label authored in the previous one).
+ */
+main > .section.dark + .section.cards-logos-container:has(> .cards-logos-wrapper:first-child) {
+  margin-top: calc(34px - 18px - var(--section-padding));
+  padding-top: 0;
+}
+
+.cards-logos > ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px 18px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards-logos .cards-logos-item {
+  margin: 0;
+  padding: 0;
+}
+
+.cards-logos .cards-logos-logo {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 76px;
+  padding: 14px 18px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 6px 18px -8px rgb(0 0 0 / 35%);
+  color: var(--text-color);
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cards-logos .cards-logos-logo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px -8px rgb(0 0 0 / 50%);
+}
+
+.cards-logos .cards-logos-logo picture {
+  display: contents;
+}
+
+.cards-logos .cards-logos-logo img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 40px;
+  object-fit: contain;
+}
+
+.cards-logos .cards-logos-label {
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+}
+
+/* "+ 500 enterprise clients" link (default content after the block) */
+main > .section.cards-logos-container > .cards-logos-wrapper + .default-content-wrapper {
+  margin-top: 24px;
+}
+
+main > .section.cards-logos-container > .cards-logos-wrapper + .default-content-wrapper > p:last-child {
+  margin: 0;
+  font-size: var(--body-font-size-xs);
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+main > .section.cards-logos-container > .cards-logos-wrapper + .default-content-wrapper > p:last-child a:any-link {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s, opacity 0.2s;
+}
+
+main > .section.cards-logos-container > .cards-logos-wrapper + .default-content-wrapper > p:last-child a:any-link:hover {
+  color: #fff;
+  opacity: 0.72;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (width > 768px) {
+  .cards-logos .cards-logos-logo {
+    overflow: visible;
+  }
+
+  /* these source files carry wide transparent margins; the source scales them up to match */
+  .cards-logos .cards-logos-logo img[src*="/cl-bayalarm."],
+  .cards-logos .cards-logos-logo img[src*="/cl-thomsonreuters."],
+  .cards-logos .cards-logos-logo img[src*="/cl-mcafee."] {
+    transform: scale(1.75);
+  }
+
+  /* sits in the grid's first column, like the source's 13th grid cell */
+  main > .section.cards-logos-container > .cards-logos-wrapper + .default-content-wrapper > p:last-child {
+    width: calc((100% - 2 * 18px) / 3);
+    white-space: normal;
+  }
+}
+
+@media (width > 960px) {
+  .cards-logos > ul {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  main > .section.cards-logos-container > .cards-logos-wrapper + .default-content-wrapper > p:last-child {
+    width: calc((100% - 5 * 18px) / 6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cards-logos .cards-logos-logo {
+    transition: none;
+  }
+
+  .cards-logos .cards-logos-logo:hover {
+    transform: none;
+  }
+}
+
+/*
+ * "Trusted by ..." label authored in the same section, before the block:
+ * bold caption followed by a thin rule filling the row, 34px above the logos.
+ */
+main > .section.cards-logos-container > .default-content-wrapper:first-child > p:first-child:only-child {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 34px;
+  color: rgb(234 240 247);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+main > .section.cards-logos-container > .default-content-wrapper:first-child > p:first-child:only-child::after {
+  content: '';
+  flex: 1 1 0%;
+  height: 1px;
+  background: rgb(255 255 255 / 14%);
+}
+
+main > .section.cards-logos-container > .default-content-wrapper:first-child + .cards-logos-wrapper {
+  margin-top: 0;
+}

@@ -1,0 +1,42 @@
+{
+  "id": "cards-services",
+  "name": "cards-services",
+  "variantName": "cards-services",
+  "type": "cards",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "version": "1.0.0",
+  "created": "2026-09-29T10:40:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.brainvire.com/",
+    "discoveredDuring": "excat-site-migration per-page analysis",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "dense",
+    "imagePattern": "noimg",
+    "purpose": "cards-services",
+    "structure": "3-column grid of practice cards: index label, H3, subtitle, description, 4-item list, arrow link",
+    "hasBgImage": false,
+    "position": "top",
+    "isFullWidth": false,
+    "hasGrid": true,
+    "sectionStyle": "light (white)",
+    "summary": "Three-column grid of practice items, each with index number, H3 with small subtitle, paragraph, bulleted list of 4 items, arrow link"
+  },
+  "contentPattern": {
+    "structure": "one row per practice, one cell: index label paragraph (e.g. /01), H3 title, subtitle paragraph, description paragraph, bulleted list, and a final paragraph with a single link",
+    "buttonCount": 3,
+    "imageCount": 0
+  },
+  "options": [],
+  "memberVariantIds": ["cards-services"],
+  "usage": {
+    "pagesUsing": [
+      { "url": "https://www.brainvire.com/", "instanceId": null, "screenshot": "migration-work/screenshot.png" }
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-29T10:40:00.000Z"
+  }
+}

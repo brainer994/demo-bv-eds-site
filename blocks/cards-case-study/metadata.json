@@ -1,0 +1,42 @@
+{
+  "id": "cards-case-study",
+  "name": "cards-case-study",
+  "variantName": "cards-case-study",
+  "type": "cards",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "version": "1.0.0",
+  "created": "2026-09-29T11:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.brainvire.com/",
+    "discoveredDuring": "excat-site-migration per-page analysis",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "imagePattern": "large",
+    "purpose": "cards-case-study",
+    "structure": "vertically stacked horizontal cards: left text column (optional logo, bracketed stat, caption, H3, paragraph, industry tag, link), right large cover image",
+    "hasBgImage": false,
+    "position": "middle",
+    "isFullWidth": false,
+    "hasGrid": true,
+    "sectionStyle": "light (white)",
+    "summary": "Three stacked horizontal case-study items: left text (optional client logo, large bracketed stat, stat caption, H3, paragraph, uppercase industry tag, 'Read the case' link), right large image"
+  },
+  "contentPattern": {
+    "structure": "one row per case study: image cell | text cell with optional client logo image, stat paragraph (e.g. [3 Months]), stat caption, H3, description paragraph, industry tag paragraph, and a final paragraph with a single link (makes the whole card clickable)",
+    "buttonCount": 3,
+    "imageCount": 5
+  },
+  "options": [],
+  "memberVariantIds": ["cards-case-study"],
+  "usage": {
+    "pagesUsing": [
+      { "url": "https://www.brainvire.com/", "instanceId": null, "screenshot": "migration-work/sec-7.png" }
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-29T11:00:00.000Z"
+  }
+}

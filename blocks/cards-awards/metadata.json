@@ -1,0 +1,42 @@
+{
+  "id": "cards-awards",
+  "name": "cards-awards",
+  "variantName": "cards-awards",
+  "type": "cards",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "version": "1.0.0",
+  "created": "2026-09-29T11:15:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.brainvire.com/",
+    "discoveredDuring": "excat-site-migration per-page analysis",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "imagePattern": "icon",
+    "purpose": "cards-awards",
+    "structure": "4-column grid of bordered award cards: badge image, year, H3, short description; whole card linked",
+    "hasBgImage": false,
+    "position": "bottom",
+    "isFullWidth": false,
+    "hasGrid": true,
+    "sectionStyle": "grey (#f4f5f7)",
+    "summary": "Four bordered award items, each with badge image, year, H3, short description, linked"
+  },
+  "contentPattern": {
+    "structure": "one row per award: badge image | year paragraph, H3 (link it to make the whole card clickable), description paragraph",
+    "buttonCount": 0,
+    "imageCount": 4
+  },
+  "options": [],
+  "memberVariantIds": ["cards-awards"],
+  "usage": {
+    "pagesUsing": [
+      { "url": "https://www.brainvire.com/", "instanceId": null, "screenshot": "migration-work/sec-10.png" }
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-29T11:15:00.000Z"
+  }
+}

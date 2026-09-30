@@ -1,0 +1,43 @@
+/* Brand tokens extracted from https://www.brainvire.com/ */
+:root {
+  /* fonts */
+  --heading-font-family: "BV Serif", bv-serif-fallback, georgia, "Times New Roman", serif;
+  --body-font-family: "BV Sans", bv-sans-fallback, "Helvetica Neue", helvetica, arial, sans-serif;
+
+  /* colors */
+  --background-color: #fff;
+  --text-color: #141414;
+  --body-text-color: #363636;
+  --muted-text-color: #707070;
+  --lede-text-color: #3e4756;
+  --link-color: #0162f4;
+  --link-hover-color: #0152cb;
+  --accent-color: #1b76fe;
+  --light-color: #f4f5f7;
+  --dark-color: #141414;
+  --border-color: #c9cdd3;
+  --border-strong-color: #8b95a7;
+  --dark-gradient: linear-gradient(120deg, #141414 0%, #333 20%, #0141a2 50%, #0162f4 70%, #333 90%, #141414 100%);
+
+  /* layout */
+  --content-max-width: 1280px;
+  --content-padding: 22px;
+  --section-padding: 54px;
+  --section-padding-l: 72px;
+  --nav-height: 77px;
+
+  /* heading sizes (fluid, matching source clamp behaviour) */
+  --heading-size-xxl: clamp(48px, 7.2vw, 96px);
+  --heading-size-xl: clamp(28px, 3.1vw, 44.64px);
+  --heading-size-cta: clamp(38px, 5vw, 66px);
+  --heading-size-l: 24px;
+  --heading-size-m: 20px;
+  --heading-size-s: 18px;
+  --heading-size-xs: 16px;
+}
+
+@media (width >= 600px) {
+  :root {
+    --content-padding: 36px;
+  }
+}

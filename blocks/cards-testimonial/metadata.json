@@ -1,0 +1,42 @@
+{
+  "id": "cards-testimonial",
+  "name": "cards-testimonial",
+  "variantName": "cards-testimonial",
+  "type": "cards",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "version": "1.0.0",
+  "created": "2026-09-29T11:05:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.brainvire.com/",
+    "discoveredDuring": "excat-site-migration per-page analysis",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "imagePattern": "multiple",
+    "purpose": "cards-testimonial",
+    "structure": "two columns: large featured video testimonial (thumbnail + play button + name/role) left; italic quote, CTA button and 2-up grid of small video testimonials right",
+    "hasBgImage": false,
+    "position": "middle",
+    "isFullWidth": false,
+    "hasGrid": true,
+    "sectionStyle": "light (white)",
+    "summary": "Featured video testimonial (large thumbnail with play button, name, role) beside an italic quote, a 'Read more client reviews' button and two smaller video testimonial thumbnails (name, role)"
+  },
+  "contentPattern": {
+    "structure": "one row per testimonial: thumbnail image | bold name, role paragraph, link to the video (YouTube/Vimeo/mp4); the featured (first) row also carries the quote (blockquote or italic paragraph) and a 'read more' link",
+    "buttonCount": 1,
+    "imageCount": 3
+  },
+  "options": [],
+  "memberVariantIds": ["cards-testimonial"],
+  "usage": {
+    "pagesUsing": [
+      { "url": "https://www.brainvire.com/", "instanceId": null, "screenshot": "migration-work/sec-8.png" }
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-29T11:05:00.000Z"
+  }
+}

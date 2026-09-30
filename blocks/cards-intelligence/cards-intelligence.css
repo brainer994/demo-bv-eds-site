@@ -1,0 +1,233 @@
+/*
+ * Framed panel. The frame header (title, subtitle, button) is authored as default content
+ * directly before the block, so the frame is drawn in two parts:
+ *  - top: a ::before grid item in the default-content-wrapper (sides + top edge, glow)
+ *  - bottom: the block itself (sides + bottom edge)
+ */
+.section.cards-intelligence-container {
+  --cards-intelligence-line: rgb(255 255 255 / 14%);
+  --cards-intelligence-muted: #e9f1fc;
+  --cards-intelligence-pad: 36px;
+}
+
+.section.cards-intelligence-container .default-content-wrapper {
+  display: grid;
+  grid-template-columns:
+    calc(var(--cards-intelligence-pad) + 1px) minmax(0, 1fr)
+    auto calc(var(--cards-intelligence-pad) + 1px);
+  grid-template-rows: auto auto calc(var(--cards-intelligence-pad) + 1px) auto auto auto 56px;
+}
+
+.section.cards-intelligence-container .default-content-wrapper > * {
+  grid-column: 1 / -1;
+}
+
+.section.cards-intelligence-container .default-content-wrapper > p:first-child {
+  grid-row: 1;
+}
+
+/* source overrides the global h2 size here: 26px -> 38px (line-height stays 1.06) */
+main .section.cards-intelligence-container .default-content-wrapper > h2 {
+  grid-row: 2;
+  margin-bottom: 64px;
+  font-size: clamp(26px, 2.7vw, 38px);
+}
+
+/* frame: top edge + sides, with the corner glow */
+.section.cards-intelligence-container .default-content-wrapper::before {
+  content: '';
+  grid-column: 1 / -1;
+  grid-row: 3 / -1;
+  border: 1px solid var(--cards-intelligence-line);
+  border-bottom: 0;
+  border-radius: 2px 2px 0 0;
+  background: radial-gradient(760px 380px at 100% 0%, rgb(59 139 255 / 13%), transparent 60%);
+  pointer-events: none;
+}
+
+/* animated beam running along the top edge */
+.section.cards-intelligence-container .default-content-wrapper::after {
+  content: '';
+  grid-column: 1 / -1;
+  grid-row: 3;
+  align-self: start;
+  height: 2px;
+  margin: 1px 1px 0;
+  background: linear-gradient(90deg, transparent, var(--accent-color), #9d7dff, transparent) no-repeat;
+  background-size: 30% 100%;
+  background-position: -42.857% 0;
+  animation: cards-intelligence-beam 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes cards-intelligence-beam {
+  0% { background-position: -42.857% 0; }
+
+  60%,
+  100% { background-position: 142.857% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section.cards-intelligence-container .default-content-wrapper::after {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* frame title ("The Brainvire Intelligence Layer") */
+main .section.cards-intelligence-container .default-content-wrapper > h2 + p:not(.button-wrapper) {
+  grid-column: 2 / 4;
+  grid-row: 4;
+  max-width: 560px;
+  margin: 0;
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+/* the whole title is one weight on the source; <strong> would render it bolder */
+main .section.cards-intelligence-container .default-content-wrapper > h2 + p:not(.button-wrapper) strong {
+  font-weight: inherit;
+}
+
+/* "Intelligence Layer" emphasis: upright, light blue */
+main .section.cards-intelligence-container .default-content-wrapper > h2 + p:not(.button-wrapper) em {
+  color: rgb(191 219 255);
+  font-style: normal;
+  font-weight: inherit;
+}
+
+/* frame subtitle */
+.section.cards-intelligence-container .default-content-wrapper > h2 + p + p:not(.button-wrapper) {
+  grid-column: 2 / 4;
+  grid-row: 5;
+  max-width: 560px;
+  margin: 8px 0 0;
+  color: var(--cards-intelligence-muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* frame button: wraps below the title on narrow screens */
+.section.cards-intelligence-container .default-content-wrapper > .button-wrapper {
+  grid-column: 2 / 4;
+  grid-row: 6;
+  justify-self: start;
+  margin: 20px 0 0;
+}
+
+main .section.cards-intelligence-container .default-content-wrapper a.button {
+  gap: 12px;
+  line-height: 1.55;
+}
+
+/* frame bottom: sides + bottom edge around the modules */
+.cards-intelligence {
+  padding: 0 var(--cards-intelligence-pad) var(--cards-intelligence-pad);
+  border: 1px solid var(--cards-intelligence-line);
+  border-top: 0;
+  border-radius: 0 0 2px 2px;
+}
+
+.section.cards-intelligence-container > .cards-intelligence-wrapper {
+  margin-top: 0;
+}
+
+.cards-intelligence > ul {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--cards-intelligence-line);
+  list-style: none;
+}
+
+.cards-intelligence .cards-intelligence-module {
+  padding: 34px 0 8px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.cards-intelligence .cards-intelligence-module + .cards-intelligence-module {
+  border-top: 1px solid var(--cards-intelligence-line);
+}
+
+.cards-intelligence .cards-intelligence-eyebrow {
+  margin: 0 0 14px;
+  color: #eaf3ff;
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.55;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.cards-intelligence .cards-intelligence-title {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.cards-intelligence .cards-intelligence-text {
+  margin: 0;
+  color: var(--cards-intelligence-muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+@media (width >= 768px) {
+  .cards-intelligence > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cards-intelligence .cards-intelligence-module {
+    padding: 34px 28px 8px 0;
+    border-right: 1px solid var(--cards-intelligence-line);
+  }
+
+  .cards-intelligence .cards-intelligence-module + .cards-intelligence-module {
+    border-top: 0;
+  }
+
+  .cards-intelligence .cards-intelligence-module:last-child {
+    border-right: 0;
+  }
+}
+
+@media (width >= 900px) {
+  /* title + subtitle on the left, button on the right */
+  .section.cards-intelligence-container .default-content-wrapper {
+    grid-template-rows: auto auto calc(var(--cards-intelligence-pad) + 1px) auto auto 56px;
+  }
+
+  main .section.cards-intelligence-container .default-content-wrapper > h2 + p:not(.button-wrapper),
+  .section.cards-intelligence-container .default-content-wrapper > h2 + p + p:not(.button-wrapper) {
+    grid-column: 2;
+  }
+
+  .section.cards-intelligence-container .default-content-wrapper > .button-wrapper {
+    grid-column: 3;
+    grid-row: 4 / span 2;
+    align-self: start;
+    margin: 0 0 0 20px;
+  }
+}
+
+@media (width > 960px) {
+  .section.cards-intelligence-container {
+    --cards-intelligence-pad: 64px;
+  }
+
+  .cards-intelligence > ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .cards-intelligence .cards-intelligence-module {
+    padding-left: 28px;
+  }
+
+  .cards-intelligence .cards-intelligence-module:first-child {
+    padding-left: 0;
+  }
+}
