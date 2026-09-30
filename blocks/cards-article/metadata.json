@@ -1,0 +1,42 @@
+{
+  "id": "cards-article",
+  "name": "cards-article",
+  "variantName": "cards-article",
+  "type": "cards",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "version": "1.0.0",
+  "created": "2026-09-29T11:20:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.brainvire.com/",
+    "discoveredDuring": "excat-site-migration per-page analysis",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "imagePattern": "multiple",
+    "purpose": "cards-article",
+    "structure": "3-column grid of linked article cards: 16:9 cover image, category tag, H3 title, footer row with read-time/date meta and arrow",
+    "hasBgImage": false,
+    "position": "bottom",
+    "isFullWidth": false,
+    "hasGrid": true,
+    "sectionStyle": "light (white)",
+    "summary": "Three linked article items, each with cover image, category tag, H3 title, read-time/date meta"
+  },
+  "contentPattern": {
+    "structure": "one row per article: cover image | category paragraph, H3 linked to the article (makes the whole card clickable), meta paragraph (read time and date)",
+    "buttonCount": 0,
+    "imageCount": 3
+  },
+  "options": [],
+  "memberVariantIds": ["cards-article"],
+  "usage": {
+    "pagesUsing": [
+      { "url": "https://www.brainvire.com/", "instanceId": null, "screenshot": "migration-work/sec-11.png" }
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-29T11:20:00.000Z"
+  }
+}

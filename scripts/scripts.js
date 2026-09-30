@@ -10,6 +10,9 @@ import {
   loadSections,
   loadCSS,
   buildBlock,
+  readBlockConfig,
+  toCamelCase,
+  toClassName,
 } from './aem.js';
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
@@ -143,6 +146,58 @@ function decorateButtons(main) {
 }
 
 /**
+ * Applies Section Metadata to its section: `style` becomes section classes,
+ * other keys become data attributes. The metadata block is then removed.
+ * @param {Element} main The main element
+ */
+function decorateSectionMetadata(main) {
+  main.querySelectorAll(':scope > div.section').forEach((section) => {
+    const sectionMeta = section.querySelector('div.section-metadata');
+    if (!sectionMeta) return;
+    const meta = readBlockConfig(sectionMeta);
+    Object.keys(meta).forEach((key) => {
+      if (key === 'style') {
+        String(meta.style).split(',')
+          .map((style) => toClassName(style.trim()))
+          .filter((style) => style)
+          .forEach((style) => section.classList.add(style));
+      } else {
+        section.dataset[toCamelCase(key)] = meta[key];
+      }
+    });
+    const wrapper = sectionMeta.parentElement;
+    sectionMeta.remove();
+    if (wrapper !== section && !wrapper.children.length) wrapper.remove();
+  });
+}
+
+/**
+ * Adds the brand's accent marks to default content: the leading "/" of eyebrow
+ * labels ("/ Capabilities") and the trailing full stop of section headings.
+ * @param {Element} main The main element
+ */
+function decorateAccentMarks(main) {
+  main.querySelectorAll('.default-content-wrapper > p:first-child').forEach((p) => {
+    const first = p.firstChild;
+    if (first?.nodeType !== Node.TEXT_NODE || !first.textContent.startsWith('/')) return;
+    const mark = document.createElement('span');
+    mark.className = 'accent-mark';
+    mark.textContent = '/';
+    first.textContent = first.textContent.slice(1);
+    p.prepend(mark);
+  });
+  main.querySelectorAll('.default-content-wrapper > h2').forEach((h2) => {
+    const last = h2.lastChild;
+    if (last?.nodeType !== Node.TEXT_NODE || !/\.\s*$/.test(last.textContent)) return;
+    last.textContent = last.textContent.replace(/\.\s*$/, '');
+    const mark = document.createElement('span');
+    mark.className = 'accent-mark';
+    mark.textContent = '.';
+    h2.append(mark);
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -151,6 +206,8 @@ export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  decorateSectionMetadata(main);
+  decorateAccentMarks(main);
   decorateBlocks(main);
   decorateButtons(main);
 }

@@ -1,0 +1,231 @@
+/* hero-video: full-bleed hero with background image + looping video, light overlay */
+
+/* the hero section sits flush against the next band (source has no section gap) */
+main > .section.hero-video-container {
+  padding: 0;
+}
+
+.hero-video-container .hero-video-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero-video {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 64px 0;
+  line-height: 1.55;
+}
+
+/* background media */
+.hero-video .hero-video-media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.hero-video .hero-video-media picture,
+.hero-video .hero-video-media video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-video .hero-video-media img,
+.hero-video .hero-video-media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.hero-video .hero-video-media img {
+  object-position: center 40%;
+}
+
+.hero-video .hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgb(246 249 255 / 84%) 0%, rgb(236 244 255 / 70%) 26%, rgb(205 226 255 / 60%) 50%, rgb(90 145 225 / 42%) 74%, rgb(1 49 130 / 55%) 100%),
+    radial-gradient(1000px 520px at 88% 12%, rgb(1 98 244 / 50%), transparent 64%),
+    linear-gradient(0deg, rgb(1 26 80 / 44%) 0%, rgb(1 26 80 / 0%) 38%),
+    linear-gradient(115deg, rgb(10 16 30 / 14%) 0%, rgb(10 16 30 / 0%) 40%);
+}
+
+/* extra wash on small screens so dark text stays readable over the video */
+@media (width < 768px) {
+  .hero-video .hero-video-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgb(246 249 255 / 0%) 0%, rgb(244 249 255 / 34%) 34%, rgb(242 248 255 / 74%) 66%, rgb(241 247 255 / 90%) 100%);
+  }
+}
+
+@media (width >= 768px) and (width <= 960px) {
+  .hero-video .hero-video-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgb(246 249 255 / 0%) 0%, rgb(244 249 255 / 28%) 42%, rgb(242 248 255 / 70%) 72%, rgb(241 247 255 / 88%) 100%);
+  }
+}
+
+/* content column */
+.hero-video .hero-video-content {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 var(--content-padding);
+  color: var(--text-color);
+}
+
+.hero-video h1 {
+  max-width: 1100px;
+  margin: 0;
+  color: var(--text-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-size-xxl);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+}
+
+/* authoring hooks: italic word + gradient phrase in the headline */
+.hero-video h1 em {
+  font-family: var(--heading-font-family);
+  font-size: 0.96em;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.hero-video h1 strong {
+  background: linear-gradient(92deg, var(--link-color), var(--accent-color));
+  background-clip: text;
+  color: transparent;
+  font-weight: inherit;
+}
+
+.hero-video .hero-video-content > p {
+  max-width: 600px;
+  margin: 22px 0 32px;
+  color: var(--lede-text-color);
+  font-size: var(--lede-font-size);
+  line-height: 1.55;
+}
+
+/* CTAs */
+.hero-video .hero-video-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.hero-video .hero-video-ctas p,
+.hero-video .hero-video-ctas p.button-wrapper {
+  margin: 0;
+}
+
+main .hero-video a.button:any-link {
+  gap: 12px;
+  line-height: 1.55;
+  white-space: nowrap;
+}
+
+main .hero-video a.button.secondary {
+  border-color: var(--border-strong-color);
+  color: var(--text-color);
+}
+
+/* the source hero pins this border (no hover change); keyboard focus keeps the global outline */
+main .hero-video a.button.secondary:hover,
+main .hero-video a.button.secondary:focus-visible {
+  border-color: var(--border-strong-color);
+  color: var(--text-color);
+}
+
+/* platform tiles */
+.hero-video .hero-video-tiles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 44px;
+}
+
+.hero-video a.hero-video-tile:any-link,
+.hero-video .hero-video-tile {
+  display: block;
+  box-sizing: border-box;
+  padding: 20px 24px 22px;
+  border: 1px solid rgb(11 13 16 / 8%);
+  border-radius: 8px;
+  background: rgb(255 255 255 / 72%);
+  backdrop-filter: blur(10px);
+  color: var(--text-color);
+  font-size: var(--body-font-size-m);
+  line-height: 1.55;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.hero-video a.hero-video-tile:hover,
+.hero-video a.hero-video-tile:focus-visible {
+  background: rgb(255 255 255 / 92%);
+  color: var(--text-color);
+  transform: translateY(-2px);
+}
+
+.hero-video .hero-video-tile-title {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--body-font-family);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.hero-video .hero-video-tile-title em {
+  color: var(--accent-color);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* source line pitch is the tile's 15px x 1.55 strut; set it explicitly so it holds in any mode */
+.hero-video .hero-video-tile-desc {
+  display: block;
+  color: var(--muted-text-color);
+  font-size: 13.5px;
+  line-height: 23.25px;
+}
+
+@media (width > 480px) {
+  .hero-video .hero-video-tiles {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (width > 900px) {
+  .hero-video .hero-video-tiles {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-video a.hero-video-tile:any-link {
+    transition: none;
+  }
+
+  .hero-video a.hero-video-tile:hover {
+    transform: none;
+  }
+}

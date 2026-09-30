@@ -1,0 +1,265 @@
+/* cards-case-study: stacked horizontal case study cards (text left, contained image right) */
+
+/* source spacing: section intro -> stack 46px; last card -> "View all" button 30px + 40px */
+main > .section.cards-case-study-container > .default-content-wrapper + .cards-case-study-wrapper {
+  margin-top: 46px;
+}
+
+main > .section.cards-case-study-container > .cards-case-study-wrapper + .default-content-wrapper {
+  margin-top: 30px;
+}
+
+/* the lone button paragraph would otherwise pick up the global eyebrow-label style */
+main > .section.cards-case-study-container > .cards-case-study-wrapper + .default-content-wrapper > p.button-wrapper:first-child {
+  margin: 40px 0 0;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.cards-case-study {
+  color: var(--text-color);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.cards-case-study > ul {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* cards stack on scroll: each one sticks slightly lower than the previous */
+.cards-case-study .cards-case-study-item {
+  position: sticky;
+  top: 104px;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #d6d6d6;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: rgb(11 13 16 / 35%) 0 -24px 60px -34px;
+}
+
+.cards-case-study .cards-case-study-item:nth-child(2) {
+  top: 122px;
+}
+
+.cards-case-study .cards-case-study-item:nth-child(3) {
+  top: 140px;
+}
+
+/* text column */
+.cards-case-study .cards-case-study-text {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 28px 24px;
+}
+
+.cards-case-study .cards-case-study-text > * {
+  margin: 0;
+}
+
+.cards-case-study .cards-case-study-logo {
+  margin: 0 0 22px;
+  line-height: 0;
+}
+
+.cards-case-study .cards-case-study-logo picture {
+  display: block;
+}
+
+.cards-case-study .cards-case-study-logo img {
+  display: block;
+  width: auto;
+  max-width: 200px;
+  height: 46px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.cards-case-study .cards-case-study-stat {
+  color: var(--text-color);
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
+.cards-case-study .cards-case-study-stat strong,
+.cards-case-study .cards-case-study-stat b {
+  font-weight: inherit;
+}
+
+.cards-case-study .cards-case-study-stat-long {
+  font-size: 34px;
+  line-height: 1.05;
+}
+
+.cards-case-study .cards-case-study-caption {
+  max-width: 340px;
+  margin: 18px 0 10px;
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.cards-case-study .cards-case-study-eyebrow {
+  color: var(--muted-text-color);
+  font-size: 14px;
+}
+
+.cards-case-study .cards-case-study-title {
+  display: -webkit-box;
+  margin-top: auto;
+  padding-top: 22px;
+  overflow: hidden;
+  color: var(--text-color);
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.cards-case-study .cards-case-study-desc {
+  display: -webkit-box;
+  max-width: 480px;
+  margin-top: 10px;
+  overflow: hidden;
+  color: var(--muted-text-color);
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.cards-case-study .cards-case-study-tag {
+  margin-top: 12px;
+  color: rgb(111 118 128);
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.55;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cards-case-study .cards-case-study-link {
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.cards-case-study a.cards-case-study-anchor:any-link {
+  color: var(--text-color);
+}
+
+.cards-case-study .cards-case-study-item:hover a.cards-case-study-anchor:any-link {
+  color: var(--accent-color);
+}
+
+/* stretched link: the whole case study is clickable */
+.cards-case-study .cards-case-study-linked .cards-case-study-anchor::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* media column: contained image over a blurred copy of itself */
+.cards-case-study .cards-case-study-media {
+  position: relative;
+  order: -1;
+  height: 210px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.cards-case-study .cards-case-study-media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg);
+  background-position: center;
+  background-size: cover;
+  filter: blur(28px) saturate(1.15);
+  transform: scale(1.18);
+  opacity: 0.6;
+}
+
+.cards-case-study .cards-case-study-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(255 255 255 / 8%), transparent 30%);
+}
+
+.cards-case-study .cards-case-study-media picture {
+  display: block;
+  height: 100%;
+}
+
+.cards-case-study .cards-case-study-media img {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 18px;
+  object-fit: contain;
+  filter: drop-shadow(rgb(21 35 61 / 30%) 0 10px 26px);
+}
+
+@media (width > 600px) {
+  .cards-case-study .cards-case-study-logo img {
+    height: 52px;
+  }
+}
+
+@media (width > 960px) {
+  .cards-case-study .cards-case-study-item {
+    grid-template-columns: 1fr 1.1fr;
+    min-height: 410px;
+  }
+
+  .cards-case-study .cards-case-study-text {
+    padding: 48px 52px;
+  }
+
+  .cards-case-study .cards-case-study-stat {
+    font-size: clamp(64px, 6.4vw, 104px);
+  }
+
+  .cards-case-study .cards-case-study-stat-long {
+    font-size: clamp(38px, 3.4vw, 56px);
+    line-height: 1.05;
+  }
+
+  .cards-case-study .cards-case-study-title {
+    padding-top: 20px;
+    font-size: 27px;
+  }
+
+  .cards-case-study .cards-case-study-media {
+    order: 0;
+    height: auto;
+  }
+
+  .cards-case-study .cards-case-study-no-media {
+    grid-template-columns: 1fr;
+  }
+}

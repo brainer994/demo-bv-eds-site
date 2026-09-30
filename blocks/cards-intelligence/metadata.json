@@ -1,0 +1,42 @@
+{
+  "id": "cards-intelligence",
+  "name": "cards-intelligence",
+  "variantName": "cards-intelligence",
+  "type": "cards",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "version": "1.0.0",
+  "created": "2026-09-29T10:50:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.brainvire.com/",
+    "discoveredDuring": "excat-site-migration per-page analysis",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "moderate",
+    "imagePattern": "noimg",
+    "purpose": "cards-intelligence",
+    "structure": "row of 4 text modules separated by vertical dividers: eyebrow label, H3, paragraph",
+    "hasBgImage": false,
+    "position": "middle",
+    "isFullWidth": false,
+    "hasGrid": true,
+    "sectionStyle": "dark gradient",
+    "summary": "Framed panel: header bar with title 'The Brainvire Intelligence Layer' + small subtitle and 'Talk it through' CTA (default content before the block); below, four modules each with eyebrow label, H3, paragraph"
+  },
+  "contentPattern": {
+    "structure": "one row per module, one cell: eyebrow label paragraph, H3 heading, description paragraph",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "options": [],
+  "memberVariantIds": ["cards-intelligence"],
+  "usage": {
+    "pagesUsing": [
+      { "url": "https://www.brainvire.com/", "instanceId": null, "screenshot": "migration-work/screenshot.png" }
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-29T10:50:00.000Z"
+  }
+}

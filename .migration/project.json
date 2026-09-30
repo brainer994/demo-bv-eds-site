@@ -1,0 +1,9 @@
+{
+  "sites": {
+    "demo-bv-eds-site": {
+      "previewOrg": "brainer994",
+      "previewSite": "demo-bv-eds-site",
+      "contentHostUrl": "https://content.da.live/brainer994/demo-bv-eds-site/"
+    }
+  }
+}

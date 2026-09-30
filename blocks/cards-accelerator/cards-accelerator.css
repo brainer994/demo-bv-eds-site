@@ -1,0 +1,260 @@
+.section.cards-accelerator-container > .cards-accelerator-wrapper {
+  margin-top: 64px;
+}
+
+.cards-accelerator > ul {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 26px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards-accelerator > ul > li {
+  display: flex;
+}
+
+.cards-accelerator .cards-accelerator-card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 36px;
+  overflow: hidden;
+  border: 1px solid #d6d6d6;
+  background-color: #fff;
+  color: var(--text-color);
+  font-size: 15px;
+  line-height: 1.55;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+/* animated gradient rule along the top edge */
+.cards-accelerator .cards-accelerator-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  height: 3px;
+  background-image: linear-gradient(90deg, var(--link-color), var(--accent-color), #9d7dff, var(--link-color));
+  background-size: 300% 100%;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+  animation: cards-accelerator-border 9s linear infinite;
+  pointer-events: none;
+}
+
+/* soft drifting glow behind the content */
+.cards-accelerator .cards-accelerator-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(520px 300px at 12% 0%, rgb(27 118 254 / 10%), transparent 60%),
+    radial-gradient(460px 280px at 100% 100%, rgb(1 98 244 / 9%), transparent 62%);
+  background-size: 200% 200%;
+  opacity: 0.55;
+  transition: opacity 0.3s;
+  animation: cards-accelerator-glow 16s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.cards-accelerator .cards-accelerator-card:hover {
+  border-color: var(--text-color);
+  box-shadow: rgb(11 13 16 / 22%) 0 24px 48px -26px;
+}
+
+.cards-accelerator .cards-accelerator-card:hover::after,
+.cards-accelerator .cards-accelerator-card:hover::before {
+  opacity: 1;
+}
+
+.cards-accelerator .cards-accelerator-card:has(.cards-accelerator-anchor:focus-visible) {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+@keyframes cards-accelerator-border {
+  0% { background-position: 0% 0; }
+  100% { background-position: 300% 0; }
+}
+
+@keyframes cards-accelerator-glow {
+  0% { background-position: 0% 0%; }
+  25% { background-position: 100% 40%; }
+  50% { background-position: 60% 100%; }
+  75% { background-position: 20% 60%; }
+  100% { background-position: 0% 0%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cards-accelerator .cards-accelerator-card,
+  .cards-accelerator .cards-accelerator-card::after,
+  .cards-accelerator .cards-accelerator-card::before {
+    animation: none;
+    transition: none;
+  }
+}
+
+.cards-accelerator .cards-accelerator-card :where(p, h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+}
+
+/* head: category tag (left) + bracketed stat with caption (right) */
+.cards-accelerator .cards-accelerator-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding-top: 34px;
+}
+
+.cards-accelerator .cards-accelerator-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 6px;
+  color: var(--link-color);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.55;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.cards-accelerator .cards-accelerator-tag::before {
+  content: '';
+  flex: none;
+  width: 18px;
+  height: 2px;
+  background-color: var(--accent-color);
+}
+
+.cards-accelerator .cards-accelerator-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 1;
+  min-width: 0;
+  text-align: right;
+}
+
+.cards-accelerator .cards-accelerator-stat {
+  color: var(--text-color);
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.cards-accelerator .cards-accelerator-stat > strong,
+.cards-accelerator .cards-accelerator-stat > b {
+  display: block;
+  font-weight: inherit;
+}
+
+.cards-accelerator .cards-accelerator-caption {
+  margin-top: 6px;
+  color: var(--muted-text-color);
+  font-size: 11.5px;
+  line-height: 1.55;
+}
+
+/* body: heading + description (grows so the footers line up) */
+.cards-accelerator .cards-accelerator-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.cards-accelerator .cards-accelerator-title {
+  padding-top: 18px;
+  color: var(--text-color);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.cards-accelerator .cards-accelerator-desc {
+  flex: 1;
+  padding-top: 14px;
+  color: var(--muted-text-color);
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+/* foot: time to value + card link */
+.cards-accelerator .cards-accelerator-foot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 26px;
+  padding: 20px 0 28px;
+  border-top: 1px solid var(--light-color);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.cards-accelerator .cards-accelerator-meta {
+  color: var(--text-color);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cards-accelerator .cards-accelerator-meta-value {
+  color: var(--link-color);
+}
+
+.cards-accelerator .cards-accelerator-link a:any-link {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.cards-accelerator .cards-accelerator-card:hover .cards-accelerator-link a:any-link {
+  color: var(--accent-color);
+}
+
+/* stretched link: the whole card is clickable */
+.cards-accelerator .cards-accelerator-linked .cards-accelerator-anchor::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+@media (width >= 480px) {
+  .cards-accelerator .cards-accelerator-foot {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+  }
+
+  .cards-accelerator .cards-accelerator-link {
+    margin-left: auto;
+  }
+}
+
+@media (width >= 768px) {
+  .cards-accelerator .cards-accelerator-figure {
+    flex-shrink: 0;
+  }
+
+  .cards-accelerator .cards-accelerator-caption {
+    max-width: 150px;
+  }
+}
+
+@media (width > 900px) {
+  .cards-accelerator > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

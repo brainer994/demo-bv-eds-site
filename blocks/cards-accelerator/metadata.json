@@ -1,0 +1,42 @@
+{
+  "id": "cards-accelerator",
+  "name": "cards-accelerator",
+  "variantName": "cards-accelerator",
+  "type": "cards",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "version": "1.0.0",
+  "created": "2026-09-29T10:55:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.brainvire.com/",
+    "discoveredDuring": "excat-site-migration per-page analysis",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "dense",
+    "imagePattern": "noimg",
+    "purpose": "cards-accelerator",
+    "structure": "2x2 grid of linked cards: head row (category tag left, bracketed stat + caption right), H3, paragraph, footer row (time-to-value left, link right)",
+    "hasBgImage": false,
+    "position": "middle",
+    "isFullWidth": false,
+    "hasGrid": true,
+    "sectionStyle": "grey (#f4f5f7)",
+    "summary": "2x2 grid of linked accelerator items, each with category tag, large bracketed stat + caption, H3, paragraph, footer row with time-to-value and 'See the playbook' label"
+  },
+  "contentPattern": {
+    "structure": "one row per accelerator, one cell: category tag paragraph, stat paragraph (e.g. [81%], bold or bracketed), stat caption paragraph, H3, description paragraph, time-to-value paragraph, and a final paragraph with a single link (makes the whole card clickable)",
+    "buttonCount": 4,
+    "imageCount": 0
+  },
+  "options": [],
+  "memberVariantIds": ["cards-accelerator"],
+  "usage": {
+    "pagesUsing": [
+      { "url": "https://www.brainvire.com/", "instanceId": null, "screenshot": "migration-work/screenshot.png" }
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-29T10:55:00.000Z"
+  }
+}

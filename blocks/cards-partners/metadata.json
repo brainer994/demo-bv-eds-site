@@ -1,0 +1,42 @@
+{
+  "id": "cards-partners",
+  "name": "cards-partners",
+  "variantName": "cards-partners",
+  "type": "cards",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "version": "1.0.0",
+  "created": "2026-09-29T10:45:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.brainvire.com/",
+    "discoveredDuring": "excat-site-migration per-page analysis",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "imagePattern": "multiple",
+    "purpose": "cards-partners",
+    "structure": "4-column x 2-row grid of partner cells: centered logo over a small tier label, cell linked to partner page",
+    "hasBgImage": false,
+    "position": "middle",
+    "isFullWidth": false,
+    "hasGrid": true,
+    "sectionStyle": "light (white)",
+    "summary": "Grid of 8 partner logos (4x2), each logo with a small partner-tier label, most linking to partner pages"
+  },
+  "contentPattern": {
+    "structure": "one row per partner: logo image | tier label (link the label to make the whole cell clickable)",
+    "buttonCount": 0,
+    "imageCount": 8
+  },
+  "options": [],
+  "memberVariantIds": ["cards-partners"],
+  "usage": {
+    "pagesUsing": [
+      { "url": "https://www.brainvire.com/", "instanceId": null, "screenshot": "migration-work/screenshot.png" }
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-29T10:45:00.000Z"
+  }
+}

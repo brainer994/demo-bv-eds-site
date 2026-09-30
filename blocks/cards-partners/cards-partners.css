@@ -1,0 +1,112 @@
+/* section: compact band with a hairline divider below */
+main > .section.cards-partners-container {
+  padding: 28px 0;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+/* section heading: H2 + side caption on one baseline */
+.section.cards-partners-container .default-content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.section.cards-partners-container .default-content-wrapper > h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.section.cards-partners-container .default-content-wrapper > h2 + p {
+  max-width: none;
+  margin: 0;
+  color: var(--muted-text-color);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.section.cards-partners-container > .cards-partners-wrapper {
+  margin-top: 44px;
+}
+
+/* logo grid: outer top/left rule, cells draw right/bottom rules */
+.cards-partners > ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #d6d6d6;
+  border-left: 1px solid #d6d6d6;
+  list-style: none;
+}
+
+.cards-partners .cards-partners-item {
+  display: flex;
+}
+
+.cards-partners .cards-partners-cell {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 36px 14px;
+  border-right: 1px solid #d6d6d6;
+  border-bottom: 1px solid #d6d6d6;
+  color: var(--text-color);
+  font-size: 15px;
+  line-height: 1.55;
+  text-align: center;
+  text-decoration: none;
+}
+
+.cards-partners .cards-partners-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  margin: 0 auto 10px;
+}
+
+.cards-partners .cards-partners-logo picture {
+  display: contents;
+}
+
+.cards-partners .cards-partners-logo img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 80px;
+  max-height: 80px;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* tier label: 10px caps baseline-aligned in a 15px/1.55 line box, as on the source */
+.cards-partners .cards-partners-tier {
+  display: block;
+  color: var(--link-color);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.55;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* zero-width strut keeps the 15px line box in both standards and quirks mode */
+.cards-partners .cards-partners-tier::before {
+  content: '\200b';
+  font-size: 15px;
+  letter-spacing: 0;
+}
+
+@media (width > 560px) {
+  .cards-partners > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width > 900px) {
+  .cards-partners > ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

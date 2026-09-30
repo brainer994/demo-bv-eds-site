@@ -1,0 +1,22 @@
+{
+  "status": "success",
+  "url": "https://www.brainvire.com/",
+  "path": "index",
+  "timestamp": "2026-09-29T13:14:15.416Z",
+  "title": "Adobe Commerce, Shopify & Odoo Solutions for Enterprise Growth",
+  "template": "home",
+  "blocks": [
+    "hero-video",
+    "cards-logos",
+    "cards-services",
+    "cards-partners",
+    "cards-intelligence",
+    "cards-accelerator",
+    "cards-case-study",
+    "cards-testimonial",
+    "tabs-industries",
+    "cards-awards",
+    "cards-article",
+    "cards-faq"
+  ]
+}
